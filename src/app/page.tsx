@@ -1,18 +1,42 @@
 import { Clapperboard } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { NavBar } from "./components/navbar";
+import { Title } from "./components/title";
+import { Cards } from "./components/cards";
+
+import { TitleArticle } from "./components/titleArticle";
 
 export default function Home() {
+  const filme1 = {
+    poster: "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/dzDK2TMXsxrolGVdZwNGcOlZqrF.jpg",
+    titulo: "Planeta dos Macacos: O Reinado ",
+    nota: 7.5
+  }
+  const filme2 = {
+    poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rC5RqXtFoTkBhNWE1dczwi4dZrX.jpg",
+    titulo: "Garfield - Fora de Casa ",
+    nota: 6.5
+  }
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <nav className="flex justify-between bg-slate-800 w-full p-4"> 
-      <div className= "flex gap-2 items-center">
-        <Clapperboard className= "text-amber-400" size={28}  />
-        <Link href="/"> <h1 className="text-amber-400 text-2xl font-bold uppercase"> Senac Filmes</h1> </Link>
-      </div>
-      <Link className= "text-gray-400 hover:text-orange-100"href="/sobre"> Sobre </Link>
-      </nav>
-      <h2>Filmes em Alta</h2>
-      </main>
+    <main className="flex min-h-screen flex-col ">
+      <NavBar />
+      <Title>Filmes em Alta</Title>
+      <section className="flex flex-wrap gap-4 m-4">
+        <Cards filme={filme1}></Cards>
+        <Cards filme={filme2}></Cards>
+
+      </section>
+
+      <Title>Séries em Alta</Title>
+      <Title>Minha Lista</Title>
+      
+
+
+   
+
+    </main>
   );
 }
